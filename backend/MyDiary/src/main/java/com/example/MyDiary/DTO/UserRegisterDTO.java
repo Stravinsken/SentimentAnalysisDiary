@@ -6,13 +6,13 @@ import lombok.*;
 
 import java.util.Date;
 
-@Builder
 @Getter @Setter
 @NoArgsConstructor
 @AllArgsConstructor
-public class UserDTO {
-    private Long id;
+@Builder
+public class UserRegisterDTO {
     private String userId;
+    private String password;
     private String nickname;
     private Gender gender;
     private Date birth;

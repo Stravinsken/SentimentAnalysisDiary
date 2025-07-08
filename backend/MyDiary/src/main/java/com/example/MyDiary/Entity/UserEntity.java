@@ -4,10 +4,7 @@ import com.example.MyDiary.DTO.UserDTO;
 import com.example.MyDiary.Entity.Enum.Gender;
 import com.example.MyDiary.Entity.Enum.Role;
 import jakarta.persistence.*;
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
+import lombok.*;
 
 import java.util.Date;
 
@@ -16,7 +13,7 @@ import java.util.Date;
 @Getter @Setter
 @NoArgsConstructor
 @AllArgsConstructor
-
+@Builder
 public class UserEntity {
 
     @Id
@@ -43,12 +40,12 @@ public class UserEntity {
 
     public UserDTO toDTO(){
         return UserDTO.builder()
-                .id(this.id)
-                .userId(this.userId)
-                .nickname(this.nickname)
-                .gender(this.gender)
-                .birth(this.birth)
-                .role(this.role)
+                .id(id)
+                .userId(userId)
+                .nickname(nickname)
+                .gender(gender)
+                .birth(birth)
+                .role(role)
                 .build();
     }
 }
