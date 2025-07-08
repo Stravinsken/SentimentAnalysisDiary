@@ -1,9 +1,20 @@
 package com.example.MyDiary.DTO;
 
-import jdk.jshell.Snippet;
+import com.example.MyDiary.Entity.Enum.Gender;
+import com.example.MyDiary.Entity.Enum.Role;
+import lombok.*;
 
+import java.util.Date;
+
+@Builder
+@Getter @Setter
+@NoArgsConstructor
+@AllArgsConstructor
 public class UserDTO {
-    public static Snippet builder() {
-
-    }
+    private Long id;
+    private String userId;
+    private String nickname;
+    private Gender gender;
+    private Date birth;
+    private Role role;
 }
