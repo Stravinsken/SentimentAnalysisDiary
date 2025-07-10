@@ -1,12 +1,13 @@
 package com.example.MyDiary.Controller;
 
+import com.example.MyDiary.DTO.LoginDTO;
 import com.example.MyDiary.DTO.UserDTO;
+import com.example.MyDiary.DTO.UserRegisterDTO;
 import com.example.MyDiary.Service.UserService;
 import lombok.RequiredArgsConstructor;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -17,8 +18,39 @@ public class UserController {
 
     private final UserService userService;
 
-    @GetMapping("/all")
+    @PostMapping("/auth")
+    public ResponseEntity<UserDTO> registerUser(@RequestBody UserRegisterDTO userDTO) {
+        return ResponseEntity
+                .status(HttpStatus.CREATED)
+                .body(userService.registerUser(userDTO));
+    }
+
+    @PostMapping("/auth/login")
+    public ResponseEntity<UserDTO> loginUser(@RequestBody LoginDTO loginDTO) {
+        UserDTO userDTO = userService.loginUser(loginDTO);
+        return ResponseEntity.ok(userDTO);
+    }
+
+    @GetMapping("/user/all")
     public ResponseEntity<List<UserDTO>> getAllUsers(){
         return ResponseEntity.ok(userService.getAllUsers());
     }
+
+    @GetMapping("/user/spec")
+    public ResponseEntity<UserDTO> getUser(@RequestParam Long id){
+        return ResponseEntity.ok(userService.getUser(id));
+    }
+
+    @PatchMapping("/user/update")
+    public ResponseEntity<UserDTO> updateUser(@RequestBody UserDTO user) {
+        return ResponseEntity.ok(userService.updateUser(user));
+    }
+
+    @DeleteMapping
+    public ResponseEntity<String> deleteUser(@RequestParam Long id){
+        userService.deleteUser(id);
+        return  ResponseEntity.ok("삭제 완료");
+    }
+
+
 }

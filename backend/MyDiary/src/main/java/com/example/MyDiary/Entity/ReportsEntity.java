@@ -15,7 +15,7 @@ import lombok.Setter;
 
 public class ReportsEntity {
     @Id
-    private Integer id;
+    private Long id;
 
     @ManyToOne
     @JoinColumn(name = "reporterId", referencedColumnName = "reporterId")
