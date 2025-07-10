@@ -1,5 +1,6 @@
 package com.example.MyDiary.Service;
 
+import com.example.MyDiary.DTO.LoginDTO;
 import com.example.MyDiary.DTO.UserDTO;
 import com.example.MyDiary.DTO.UserRegisterDTO;
 import com.example.MyDiary.Entity.UserEntity;
@@ -8,8 +9,10 @@ import jakarta.persistence.EntityNotFoundException;
 import lombok.Builder;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
+import org.springframework.web.bind.annotation.RequestBody;
 
 import java.util.List;
+import java.util.Optional;
 
 @Service
 @RequiredArgsConstructor
@@ -32,6 +35,18 @@ public class UserService {
                 .build();
 
         return userRepository.save(user).toDTO();
+    }
+
+    //로그인기능
+    public UserDTO loginUser(LoginDTO dto){
+        UserEntity user = userRepository.findByUserId(dto.getUserId())
+                .orElseThrow(() -> new IllegalArgumentException("존재하지 않는 사용자입니다."));
+
+        if(!user.getPassword().equals(dto.getPassword())){
+            throw new IllegalArgumentException("비밀번호가 일치하지 않습니다.");
+        }
+
+        return user.toDTO();
     }
 
     //전체 사용자 조회
