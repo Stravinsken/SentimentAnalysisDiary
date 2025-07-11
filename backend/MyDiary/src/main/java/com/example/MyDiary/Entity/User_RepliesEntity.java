@@ -1,13 +1,14 @@
 package com.example.MyDiary.Entity;
 
-import com.example.MyDiary.DTO.UserDTO;
-import com.example.MyDiary.DTO.User_RepliesDTO;
+import com.example.MyDiary.DTO.UserRepliesDTO;
 import jakarta.persistence.*;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
+
+import java.time.LocalDateTime;
 
 @Entity
 @Table(name = "User_RepliesEntity")
@@ -18,6 +19,7 @@ import lombok.Setter;
 
 public class User_RepliesEntity {
     @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long replyId;
 
     @ManyToOne
@@ -32,16 +34,16 @@ public class User_RepliesEntity {
     private String content;
 
     @Column
-    private String createdAt;
+    private LocalDateTime createdAt;
 
     @Column
-    private boolean isAnonymous;
+    private Boolean isAnonymous;
 
     @Column
-    private boolean isFiltered;
+    private Boolean isFiltered;
 
-    public User_RepliesDTO toDTO() {
-        return User_RepliesDTO.builder()
+    public UserRepliesDTO toDTO() {
+        return UserRepliesDTO.builder()
                 .replyId(replyId)
                 .diaryId(diaryId)
                 .userId(userId)
