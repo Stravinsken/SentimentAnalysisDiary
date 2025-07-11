@@ -9,6 +9,7 @@ import jakarta.persistence.criteria.CriteriaBuilder;
 import lombok.*;
 import org.hibernate.annotations.Polymorphism;
 
+import java.time.LocalDateTime;
 import java.util.Date;
 import java.util.stream.DoubleStream;
 
@@ -43,13 +44,23 @@ public class DiariesEntity {
     private String unconsciousKeywords;
 
     @Column
-    private String createdAt;
+    private LocalDateTime createdAt;
+    public void setCreatedAt(LocalDateTime createdAt) {
+        this.createdAt = createdAt;
+    }
 
     @Column
     private String datetime;
 
     @Column
     private boolean isPublic;
+    public Boolean getIsPublic() {
+        return isPublic;
+    }
+
+    public void setIsPublic(Boolean isPublic) {
+        this.isPublic = isPublic;
+    }
 
     public DiariesDTO toDTO(){
         return DiariesDTO.builder()
@@ -59,7 +70,7 @@ public class DiariesEntity {
                 .emotionTag(emotionTag)
                 .emotionIcon(emotionIcon)
                 .unconsciousKeywords(unconsciousKeywords)
-                .datetime(datetime)
+                .createdAt(createdAt)
                 .isPublic(isPublic)
                 .build();
     }
