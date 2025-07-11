@@ -4,15 +4,18 @@ import com.example.MyDiary.DTO.ReportsDTO;
 import jakarta.persistence.*;
 import lombok.*;
 
+import java.time.LocalDateTime;
+
 @Entity
 @Table(name = "Reports")
 @Getter
 @Setter
 @NoArgsConstructor
 @AllArgsConstructor
-
+@Builder
 public class ReportsEntity {
     @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long reportId;
 
     @ManyToOne
@@ -20,17 +23,17 @@ public class ReportsEntity {
     @JoinColumn(name = "reporterId", referencedColumnName = "userId")
     private UserEntity reporterId;
 
-    @Column
+    @Column(nullable =false)
     private String targetType;
 
-    @Column
-    private Long targetId;
+    @Column(nullable = false)
+    private String targetId;
 
     @Column
-    private String text;
+    private String reason;
 
     @Column
-    private String datetime;
+    private LocalDateTime createdAt;
 
     public ReportsDTO toDTO(){
         return ReportsDTO.builder()
@@ -38,8 +41,8 @@ public class ReportsEntity {
                 .reporterId(reporterId.getUserId())
                 .targetType(targetType)
                 .targetId(targetId)
-                .text(text)
-                .datetime(datetime)
+                .reason(reason)
+                .createdAt(createdAt)
                 .build();
     }
 }
