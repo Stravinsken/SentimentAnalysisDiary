@@ -10,10 +10,10 @@ import lombok.*;
 @AllArgsConstructor
 
 public class ReportsDTO {
-    private Integer reportId;
+    private Long reportId;
     private String reporterId;
     private String targetType;
-    private Integer targetId;
+    private Long targetId;
     private String text;
     private String datetime;
 }

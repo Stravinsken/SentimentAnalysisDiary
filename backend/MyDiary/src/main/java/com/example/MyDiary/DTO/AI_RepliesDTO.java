@@ -9,8 +9,8 @@ import lombok.*;
 @AllArgsConstructor
 
 public class AI_RepliesDTO {
-    private Integer replyId;
-    private Integer diaryId;
+    private Long replyId;
+    private Long diaryId;
     private String content;
     private String generatedAt;
     private boolean isFiltered;

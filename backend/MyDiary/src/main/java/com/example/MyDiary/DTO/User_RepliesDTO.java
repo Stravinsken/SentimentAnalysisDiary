@@ -14,7 +14,7 @@ import lombok.*;
 @AllArgsConstructor
 
 public class User_RepliesDTO {
-    private Integer replyId;
+    private Long replyId;
     private DiariesEntity diaryId;
     private UserEntity userId;
     private String content;
