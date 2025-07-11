@@ -15,7 +15,7 @@ import lombok.*;
 public class AI_RepliesEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Integer replyId;
+    private Long replyId;
 
     @OneToOne
     @MapsId

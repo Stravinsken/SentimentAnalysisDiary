@@ -18,7 +18,7 @@ import lombok.Setter;
 
 public class User_RepliesEntity {
     @Id
-    private Integer replyId;
+    private Long replyId;
 
     @ManyToOne
     @JoinColumn(name = "diaryId", referencedColumnName = "diaryId")

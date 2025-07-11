@@ -20,12 +20,11 @@ import java.util.stream.DoubleStream;
 @ToString
 @NoArgsConstructor
 @AllArgsConstructor
-
 public class DiariesEntity {
 
     @Id
     @Column(name = "diaryId")
-    private Integer diaryId;
+    private Long diaryId;
 
     @ManyToOne
     @JoinColumn(name = "userId", referencedColumnName = "userId")
@@ -45,22 +44,10 @@ public class DiariesEntity {
 
     @Column
     private LocalDateTime createdAt;
-    public void setCreatedAt(LocalDateTime createdAt) {
-        this.createdAt = createdAt;
-    }
 
     @Column
-    private String datetime;
+    private Boolean isPublic;
 
-    @Column
-    private boolean isPublic;
-    public Boolean getIsPublic() {
-        return isPublic;
-    }
-
-    public void setIsPublic(Boolean isPublic) {
-        this.isPublic = isPublic;
-    }
 
     public DiariesDTO toDTO(){
         return DiariesDTO.builder()

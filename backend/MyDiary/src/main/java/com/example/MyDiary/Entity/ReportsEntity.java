@@ -13,7 +13,7 @@ import lombok.*;
 
 public class ReportsEntity {
     @Id
-    private Integer reportId;
+    private Long reportId;
 
     @ManyToOne
     @MapsId
@@ -24,7 +24,7 @@ public class ReportsEntity {
     private String targetType;
 
     @Column
-    private Integer targetId;
+    private Long targetId;
 
     @Column
     private String text;

@@ -12,14 +12,14 @@ import java.util.Date;
 @Setter
 @NoArgsConstructor
 @AllArgsConstructor
-
 public class DiariesDTO {
-    private Integer diaryId;
+    private Long diaryId;
     private String userId;
     private String content;
     private String emotionTag;
     private String emotionIcon;
     private String unconsciousKeywords;
+    private Date datetime;
     private LocalDateTime createdAt;
-    private boolean isPublic;
+    private Boolean isPublic;
 }
