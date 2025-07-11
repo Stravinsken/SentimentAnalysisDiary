@@ -1,10 +1,8 @@
 package com.example.MyDiary.Entity;
 
+import com.example.MyDiary.DTO.ReportsDTO;
 import jakarta.persistence.*;
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
+import lombok.*;
 
 @Entity
 @Table(name = "Reports")
@@ -15,10 +13,33 @@ import lombok.Setter;
 
 public class ReportsEntity {
     @Id
-    private Long id;
+    private Integer reportId;
 
     @ManyToOne
-    @JoinColumn(name = "reporterId", referencedColumnName = "reporterId")
+    @MapsId
+    @JoinColumn(name = "reporterId", referencedColumnName = "userId")
     private UserEntity reporterId;
 
+    @Column
+    private String targetType;
+
+    @Column
+    private Integer targetId;
+
+    @Column
+    private String text;
+
+    @Column
+    private String datetime;
+
+    public ReportsDTO toDTO(){
+        return ReportsDTO.builder()
+                .reportId(reportId)
+                .reporterId(reporterId.getUserId())
+                .targetType(targetType)
+                .targetId(targetId)
+                .text(text)
+                .datetime(datetime)
+                .build();
+    }
 }

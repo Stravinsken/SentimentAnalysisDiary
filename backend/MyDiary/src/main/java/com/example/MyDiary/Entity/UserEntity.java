@@ -10,10 +10,12 @@ import java.util.Date;
 
 @Entity
 @Table(name = "users")
-@Getter @Setter
+@Getter
+@Setter
 @NoArgsConstructor
 @AllArgsConstructor
 @Builder
+
 public class UserEntity {
 
     @Id

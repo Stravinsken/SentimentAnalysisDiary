@@ -2,6 +2,7 @@ package com.example.MyDiary.DTO;
 
 import com.example.MyDiary.Entity.Enum.Gender;
 import com.example.MyDiary.Entity.Enum.Role;
+import jdk.jshell.Snippet;
 import lombok.*;
 
 import java.util.Date;
@@ -10,6 +11,8 @@ import java.util.Date;
 @Getter @Setter
 @NoArgsConstructor
 @AllArgsConstructor
+@ToString
+
 public class UserDTO {
     private Long id;
     private String userId;
@@ -17,4 +20,5 @@ public class UserDTO {
     private Gender gender;
     private Date birth;
     private Role role;
+
 }
