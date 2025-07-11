@@ -4,6 +4,7 @@ import com.example.MyDiary.Entity.Enum.Gender;
 import com.example.MyDiary.Entity.Enum.Role;
 import lombok.*;
 
+import java.time.LocalDateTime;
 import java.util.Date;
 
 @Builder
@@ -19,6 +20,6 @@ public class DiariesDTO {
     private String emotionTag;
     private String emotionIcon;
     private String unconsciousKeywords;
-    private String datetime;
+    private LocalDateTime createdAt;
     private boolean isPublic;
 }
