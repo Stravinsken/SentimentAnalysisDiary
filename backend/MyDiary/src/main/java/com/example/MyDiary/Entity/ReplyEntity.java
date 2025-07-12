@@ -1,23 +1,20 @@
 package com.example.MyDiary.Entity;
 
-import com.example.MyDiary.DTO.UserRepliesDTO;
+import com.example.MyDiary.DTO.ReplyDTO;
 import jakarta.persistence.*;
 
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
+import lombok.*;
 
 import java.time.LocalDateTime;
 
 @Entity
-@Table(name = "User_RepliesEntity")
+@Table(name = "Reply")
 @Getter
 @Setter
 @NoArgsConstructor
 @AllArgsConstructor
-
-public class User_RepliesEntity {
+@Builder
+public class ReplyEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long replyId;
@@ -42,8 +39,8 @@ public class User_RepliesEntity {
     @Column
     private Boolean isFiltered;
 
-    public UserRepliesDTO toDTO() {
-        return UserRepliesDTO.builder()
+    public ReplyDTO toDTO() {
+        return ReplyDTO.builder()
                 .replyId(replyId)
                 .diaryId(diaryId)
                 .userId(userId)
