@@ -12,7 +12,7 @@ import java.time.LocalDateTime;
 @NoArgsConstructor
 @AllArgsConstructor
 
-public class UserRepliesDTO {
+public class ReplyDTO {
     private Long replyId;
     private DiariesEntity diaryId;
     private UserEntity userId;
