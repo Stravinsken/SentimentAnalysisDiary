@@ -15,7 +15,7 @@ import java.util.Date;
 
 public class UserDTO {
     private Long id;
-    private String userId;
+    private String email;
     private String nickname;
     private Gender gender;
     private Date birth;

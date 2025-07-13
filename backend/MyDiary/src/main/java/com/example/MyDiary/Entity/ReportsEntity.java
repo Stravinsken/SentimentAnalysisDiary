@@ -20,7 +20,7 @@ public class ReportsEntity {
 
     @ManyToOne
     @MapsId
-    @JoinColumn(name = "reporterId", referencedColumnName = "userId")
+    @JoinColumn(name = "reporterId", referencedColumnName = "email")
     private UserEntity reporterId;
 
     @Column(nullable =false)
@@ -38,7 +38,7 @@ public class ReportsEntity {
     public ReportsDTO toDTO(){
         return ReportsDTO.builder()
                 .reportId(reportId)
-                .reporterId(reporterId.getUserId())
+                .reporterId(reporterId.getEmail())
                 .targetType(targetType)
                 .targetId(targetId)
                 .reason(reason)

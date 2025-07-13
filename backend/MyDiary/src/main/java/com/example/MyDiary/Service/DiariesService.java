@@ -21,7 +21,7 @@ public class DiariesService {
     //private final AIService aiService; #나중에 ai 적용시 사용
 
     public void saveDiary(DiaryWriteDTO dto) {
-        UserEntity user = userRepository.findByUserId(dto.getUserId())
+        UserEntity user = userRepository.findByEmail(dto.getUserId())
                 .orElseThrow(() -> new IllegalArgumentException("사용자 없음"));
 // ai 나중에 사용
 //        String emotionTag = aiService.analyzeEmotion(dto.getContent());

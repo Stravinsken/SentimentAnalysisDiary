@@ -23,7 +23,7 @@ public class UserEntity {
     private Long id;
 
     @Column(nullable = false, unique = true)
-    private String userId;
+    private String email;
 
     @Column
     private String password;
@@ -43,7 +43,7 @@ public class UserEntity {
     public UserDTO toDTO(){
         return UserDTO.builder()
                 .id(id)
-                .userId(userId)
+                .email(email)
                 .nickname(nickname)
                 .gender(gender)
                 .birth(birth)

@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import '../styles/styles.dart';
 import 'main_screen.dart';
+import 'dart:convert';                    //api 연동을 위한 임시 코드
+import 'package:http/http.dart' as http;  //
 
 class LoginScreen extends StatefulWidget {
   const LoginScreen({super.key});
