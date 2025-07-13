@@ -27,7 +27,7 @@ public class DiariesEntity {
     private Long diaryId;
 
     @ManyToOne
-    @JoinColumn(name = "userId", referencedColumnName = "userId")
+    @JoinColumn(name = "email", referencedColumnName = "email")
     private UserEntity userId;
 
     @Column
@@ -52,7 +52,7 @@ public class DiariesEntity {
     public DiariesDTO toDTO(){
         return DiariesDTO.builder()
                 .diaryId(diaryId)
-                .userId(userId.getUserId())
+                .userId(userId.getEmail())
                 .content(content)
                 .emotionTag(emotionTag)
                 .emotionIcon(emotionIcon)

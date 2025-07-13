@@ -42,7 +42,7 @@ class MainApp extends StatelessWidget {
           fillColor: AppColors.surface,
           contentPadding: const EdgeInsets.symmetric(horizontal: 16, vertical: 12),
         ),
-        cardTheme: CardTheme(
+        cardTheme: CardThemeData(
           color: AppColors.cardBackground,
           elevation: 0,
           shape: RoundedRectangleBorder(

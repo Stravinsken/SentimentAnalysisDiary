@@ -21,12 +21,12 @@ public class UserService {
 
     //회원가입필요
     public UserDTO registerUser(UserRegisterDTO dto){
-        if(userRepository.findByUserId(dto.getUserId()).isPresent()){
-            throw new IllegalArgumentException("이미 사용 중인 사용자의 아이디입니다.");
+        if(userRepository.findByEmail(dto.getEmail()).isPresent()){
+            throw new IllegalArgumentException("이미 사용 중인 사용자의 이메일입니다.");
         }
 
         UserEntity user = UserEntity.builder()
-                .userId(dto.getUserId())
+                .email(dto.getEmail())
                 .password(dto.getPassword())
                 .nickname(dto.getNickname())
                 .gender(dto.getGender())
@@ -39,7 +39,7 @@ public class UserService {
 
     //로그인기능
     public UserDTO loginUser(LoginDTO dto){
-        UserEntity user = userRepository.findByUserId(dto.getUserId())
+        UserEntity user = userRepository.findByEmail(dto.getEmail())
                 .orElseThrow(() -> new IllegalArgumentException("존재하지 않는 사용자입니다."));
 
         if(!user.getPassword().equals(dto.getPassword())){

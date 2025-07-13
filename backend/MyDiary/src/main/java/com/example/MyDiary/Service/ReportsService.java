@@ -20,7 +20,7 @@ public class ReportsService {
 
     //신고 등록
     public ReportsDTO createReport(ReportsDTO dto) {
-        UserEntity reporter = userRepository.findByUserId(dto.getReporterId())
+        UserEntity reporter = userRepository.findByEmail(dto.getReporterId())
                 .orElseThrow(() -> new EntityNotFoundException("신고자를 찾을 수 없습니다."));
 
         ReportsEntity report = ReportsEntity.builder()
