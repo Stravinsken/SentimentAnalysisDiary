@@ -24,7 +24,7 @@ public class ReplyEntity {
     private DiariesEntity diaryId;
 
     @ManyToOne
-    @JoinColumn(name = "email", referencedColumnName = "email")
+    @JoinColumn(name = "userId", referencedColumnName = "id")
     private UserEntity userId;
 
     @Column
