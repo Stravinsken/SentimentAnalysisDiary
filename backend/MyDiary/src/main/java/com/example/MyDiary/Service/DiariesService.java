@@ -21,24 +21,24 @@ public class DiariesService {
     //private final AIService aiService; #나중에 ai 적용시 사용
 
     public void saveDiary(DiaryWriteDTO dto) {
-        UserEntity user = userRepository.findByEmail(dto.getUserId())
+        UserEntity user = userRepository.findById(dto.getUserId())
                 .orElseThrow(() -> new IllegalArgumentException("사용자 없음"));
-// ai 나중에 사용
+//        ai 나중에 사용
 //        String emotionTag = aiService.analyzeEmotion(dto.getContent());
 //        String emotionIcon = aiService.getEmotionIcon(emotionTag);
 //        String unconsciousKeywords = aiService.extractKeywords(dto.getContent());
 
         // ai 나중에 사용
-        String emotionTag = ""; // ex) "슬픔"
-        String emotionIcon = ""; // ex) "😢"
-        String unconsciousKeywords = ""; // ex) "고독, 외로움"
+//        String emotionTag = ""; // ex) "슬픔"
+//        String emotionIcon = ""; // ex) "😢"
+//        String unconsciousKeywords = ""; // ex) "고독, 외로움"
 
         DiariesEntity diary = new DiariesEntity();
         diary.setUserId(user);
         diary.setContent(dto.getContent());
-        diary.setEmotionTag(emotionTag);
-        diary.setEmotionIcon(emotionIcon);
-        diary.setUnconsciousKeywords(unconsciousKeywords);
+//        diary.setEmotionTag(emotionTag);
+//        diary.setEmotionIcon(emotionIcon);
+//        diary.setUnconsciousKeywords(unconsciousKeywords);
         diary.setCreatedAt(java.time.LocalDateTime.now());
         diary.setIsPublic(dto.getIsPublic());
 

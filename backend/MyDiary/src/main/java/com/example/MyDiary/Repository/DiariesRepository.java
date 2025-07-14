@@ -9,5 +9,5 @@ import java.util.List;
 
 @Repository
 public interface DiariesRepository extends JpaRepository<DiariesEntity, Long> {
-    List<DiariesEntity> findByUserId(UserEntity user);
+    List<DiariesEntity> findByUserId(UserEntity userId);
 }

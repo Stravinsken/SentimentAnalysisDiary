@@ -13,9 +13,9 @@ import java.time.LocalDateTime;
 
 public class ReportsDTO {
     private Long reportId;
-    private String reporterId;
+    private Long reporterId;
     private String targetType;
-    private String targetId;
+    private Long targetId;
     private String reason;
     private LocalDateTime createdAt;
 }

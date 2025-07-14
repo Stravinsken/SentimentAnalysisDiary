@@ -6,13 +6,9 @@ import com.example.MyDiary.DTO.UserRegisterDTO;
 import com.example.MyDiary.Entity.UserEntity;
 import com.example.MyDiary.Repository.UserRepository;
 import jakarta.persistence.EntityNotFoundException;
-import lombok.Builder;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
-import org.springframework.web.bind.annotation.RequestBody;
-
 import java.util.List;
-import java.util.Optional;
 
 @Service
 @RequiredArgsConstructor
@@ -78,7 +74,4 @@ public class UserService {
     public void deleteUser(Long Id){
         userRepository.deleteById(Id);
     }
-
-
-
 }

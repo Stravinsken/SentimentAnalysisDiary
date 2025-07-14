@@ -4,7 +4,7 @@ import lombok.Data;
 
 @Data
 public class DiaryWriteDTO {
-    private String userId;
+    private Long userId;
     private String content;
     private Boolean isPublic;
 }

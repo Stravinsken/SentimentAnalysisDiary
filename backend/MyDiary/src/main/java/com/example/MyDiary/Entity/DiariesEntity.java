@@ -23,11 +23,12 @@ import java.util.stream.DoubleStream;
 public class DiariesEntity {
 
     @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "diaryId")
     private Long diaryId;
 
     @ManyToOne
-    @JoinColumn(name = "email", referencedColumnName = "email")
+    @JoinColumn(name = "userId", referencedColumnName = "id")
     private UserEntity userId;
 
     @Column
@@ -52,7 +53,7 @@ public class DiariesEntity {
     public DiariesDTO toDTO(){
         return DiariesDTO.builder()
                 .diaryId(diaryId)
-                .userId(userId.getEmail())
+                .userId(userId.getId())
                 .content(content)
                 .emotionTag(emotionTag)
                 .emotionIcon(emotionIcon)
