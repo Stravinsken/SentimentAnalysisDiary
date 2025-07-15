@@ -14,5 +14,4 @@ public class AI_RepliesDTO {
     private String content;
     private String generatedAt;
     private boolean isFiltered;
-
 }

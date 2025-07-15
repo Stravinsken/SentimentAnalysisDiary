@@ -2,7 +2,6 @@ package com.example.MyDiary.DTO;
 
 import com.example.MyDiary.Entity.Enum.Gender;
 import com.example.MyDiary.Entity.Enum.Role;
-import jdk.jshell.Snippet;
 import lombok.*;
 
 import java.util.Date;

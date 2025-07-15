@@ -1,4 +1,5 @@
 package com.example.MyDiary.Controller;
+import com.example.MyDiary.DTO.AI_RepliesDTO;
 import com.example.MyDiary.DTO.DiaryWriteDTO;
 import com.example.MyDiary.Service.DiariesService;
 import lombok.RequiredArgsConstructor;
@@ -10,11 +11,11 @@ import org.springframework.web.bind.annotation.*;
 @RequestMapping("/api/diary")
 
 public class DiariesController {
-    private final DiariesService diaryService;
+    private final DiariesService diariesService;
 
     @PostMapping("/write")
     public ResponseEntity<?> writeDiary(@RequestBody DiaryWriteDTO dto) {
-        diaryService.saveDiary(dto);
-        return ResponseEntity.ok("일기 저장 완료");
+        AI_RepliesDTO aiReply = diariesService.saveDiary(dto);
+        return ResponseEntity.ok(aiReply);
     }
 }
