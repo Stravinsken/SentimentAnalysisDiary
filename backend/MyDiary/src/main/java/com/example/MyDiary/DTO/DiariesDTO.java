@@ -12,6 +12,7 @@ import java.util.Date;
 public class DiariesDTO {
     private Long diaryId;
     private Long userId;
+    private String title;
     private String content;
     private String emotionTag;
     private String emotionIcon;

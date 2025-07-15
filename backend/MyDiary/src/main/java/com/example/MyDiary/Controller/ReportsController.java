@@ -1,7 +1,6 @@
 package com.example.MyDiary.Controller;
 
 import com.example.MyDiary.DTO.ReportsDTO;
-import com.example.MyDiary.DTO.UserDTO;
 import com.example.MyDiary.Service.ReportsService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;

@@ -1,17 +1,9 @@
 package com.example.MyDiary.Entity;
 
 import com.example.MyDiary.DTO.DiariesDTO;
-import com.example.MyDiary.DTO.UserDTO;
-import com.example.MyDiary.Entity.Enum.Gender;
-import com.example.MyDiary.Entity.Enum.Role;
 import jakarta.persistence.*;
-import jakarta.persistence.criteria.CriteriaBuilder;
 import lombok.*;
-import org.hibernate.annotations.Polymorphism;
-
 import java.time.LocalDateTime;
-import java.util.Date;
-import java.util.stream.DoubleStream;
 
 @Entity
 @Table(name = "diaries")
@@ -30,6 +22,9 @@ public class DiariesEntity {
     @ManyToOne
     @JoinColumn(name = "userId", referencedColumnName = "id")
     private UserEntity userId;
+
+    @Column
+    private String title;
 
     @Column
     private String content;
@@ -54,6 +49,7 @@ public class DiariesEntity {
         return DiariesDTO.builder()
                 .diaryId(diaryId)
                 .userId(userId.getId())
+                .title(title)
                 .content(content)
                 .emotionTag(emotionTag)
                 .emotionIcon(emotionIcon)

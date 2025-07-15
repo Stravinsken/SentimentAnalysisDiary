@@ -11,6 +11,7 @@ import lombok.*;
 @ToString
 @NoArgsConstructor
 @AllArgsConstructor
+@Builder
 
 public class AI_RepliesEntity {
     @Id
